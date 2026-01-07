@@ -1,0 +1,71 @@
+<!-- motivation.component.html -->
+<div class="container">
+  <div class="card">
+    <h1 class="title">🌟 التحول الرقمي🌟</h1>
+    
+    <div *ngIf="!showMessage" class="form-section">
+      <div class="input-group">
+        <label for="name">اسمك:</label>
+        <input 
+          type="text" 
+          id="name"
+          [(ngModel)]="userName" 
+          placeholder="أدخل اسمك هنا"
+          class="input-field"
+        />
+      </div>
+
+      <div class="input-group">
+        <label>اختر مسارك:</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input 
+              type="radio" 
+              name="track" 
+              value="ai" 
+              [(ngModel)]="selectedTrack"
+            />
+            <span class="radio-text">
+              🤖 الذكاء الاصطناعي وعلم البيانات
+            </span>
+          </label>
+          
+          <label class="radio-label">
+            <input 
+              type="radio" 
+              name="track" 
+              value="web" 
+              [(ngModel)]="selectedTrack"
+            />
+            <span class="radio-text">
+              💻 تطبيقات الويب
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <button 
+        class="btn btn-primary" 
+        (click)="onSubmit()"
+        [disabled]="!userName || !selectedTrack"
+      >
+        احصل على رسالتك التحفيزية
+      </button>
+    </div>
+
+    <div *ngIf="showMessage" class="message-section">
+      <div class="message-box">
+        <p class="message-text">{{ motivationalMessage }}</p>
+      </div>
+
+      <div class="button-group">
+        <button class="btn btn-secondary" (click)="getAnother()">
+          🔄 رسالة أخرى
+        </button>
+        <button class="btn btn-outline" (click)="reset()">
+          ↩️ البداية
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
