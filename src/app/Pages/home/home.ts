@@ -1,4 +1,3 @@
-// motivation.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule], // هذا مهم جدًا
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
@@ -16,7 +15,6 @@ export class Home {
   motivationalMessage: string = '';
   showMessage: boolean = false;
 
-  // عبارات تحفيزية لمسار الذكاء الاصطناعي وعلم البيانات
   aiDataMessages: string[] = [
     'أنت تبني مستقبل التكنولوجيا! استمر في التعلم والإبداع',
     'البيانات هي نفط العصر الحديث، وأنت تتعلم كيف تستخرج منها الذهب',
@@ -30,7 +28,6 @@ export class Home {
     'استمر! المستقبل يحتاج لخبراء مثلك في الذكاء الاصطناعي',
   ];
 
-  // عبارات تحفيزية لمسار تطبيقات الويب
   webDevMessages: string[] = [
     'كل تطبيق تبنيه هو إضافة لبصمتك الرقمية في العالم',
     'من الكود إلى واجهة مستخدم رائعة، أنت تصنع التجربة!',
@@ -53,14 +50,9 @@ export class Home {
 
   generateMessage() {
     let messages: string[] = [];
+    if (this.selectedTrack === 'ai') messages = this.aiDataMessages;
+    else if (this.selectedTrack === 'web') messages = this.webDevMessages;
 
-    if (this.selectedTrack === 'ai') {
-      messages = this.aiDataMessages;
-    } else if (this.selectedTrack === 'web') {
-      messages = this.webDevMessages;
-    }
-
-    // اختيار عبارة عشوائية
     const randomIndex = Math.floor(Math.random() * messages.length);
     this.motivationalMessage = `${this.userName}، ${messages[randomIndex]}`;
   }

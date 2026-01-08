@@ -7,7 +7,7 @@ import { Footer } from './Pages/footer/footer';
   standalone: true,
   imports: [RouterOutlet, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrls: ['./app.css'],
 })
 export class App {
   protected readonly title = signal('DigitalDevelopment');
