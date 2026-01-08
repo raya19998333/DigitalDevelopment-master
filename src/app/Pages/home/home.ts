@@ -6,9 +6,8 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './home.html',
-  styleUrls: ['./home.css'],
+  styleUrl: './home.css',
 })
 export class Home {
   userName: string = '';
