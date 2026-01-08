@@ -1,14 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Home } from "./Pages/home/home";
+import { Home } from './Pages/home/home';
 import { Footer } from './Pages/footer/footer';
-
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Home,Footer],
+  standalone: true,
+  imports: [RouterOutlet, Home, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('DigitalDevelopment');
